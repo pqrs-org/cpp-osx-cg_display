@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.9)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_OSX_ARCHITECTURES x86_64;arm64)
 
 add_compile_options(-Wall)
