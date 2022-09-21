@@ -24,5 +24,9 @@ int main(void) {
               << "  h:" << bounds.size.height << std::endl;
   }
 
+  if (auto display_id = pqrs::osx::cg_display::get_online_display_id_by_mouse_cursor()) {
+    std::cout << "online_display_id_by_mouse_cursor: " << *display_id << std::endl;
+  }
+
   return 0;
 }

@@ -7,6 +7,8 @@
 // (See http://www.boost.org/LICENSE_1_0.txt)
 
 #include <CoreGraphics/CoreGraphics.h>
+#include <optional>
+#include <pqrs/osx/cg_event.hpp>
 #include <vector>
 
 namespace pqrs {
@@ -39,6 +41,19 @@ inline std::vector<CGDirectDisplayID> active_displays(void) {
   std::vector<CGDirectDisplayID> displays(display_count);
   CGGetActiveDisplayList(displays.size(), displays.data(), &display_count);
   return displays;
+}
+
+inline std::optional<CGDirectDisplayID> get_online_display_id_by_mouse_cursor() {
+  std::optional<CGDirectDisplayID> result;
+
+  auto point = cg_event::mouse::cursor_position();
+
+  CGDirectDisplayID display_id;
+  if (CGGetDisplaysWithPoint(point, 1, &display_id, nullptr) == kCGErrorSuccess) {
+    result = display_id;
+  }
+
+  return result;
 }
 
 } // namespace cg_display

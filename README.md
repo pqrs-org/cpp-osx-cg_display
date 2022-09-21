@@ -5,6 +5,12 @@
 
 Utilities of `Quartz Display Services`.
 
+## Requirements
+
+cpp-osx-cg_display depends the following classes.
+
+- [pqrs::osx::cg_event](https://github.com/pqrs-org/cpp-osx-cg_event).
+
 ## Install
 
 ### Using package manager
