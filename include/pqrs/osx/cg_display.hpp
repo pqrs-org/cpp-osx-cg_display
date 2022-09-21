@@ -1,6 +1,6 @@
 #pragma once
 
-// pqrs::osx::cg_display v1.1
+// pqrs::osx::cg_display v1.2
 
 // (C) Copyright Takayama Fumihiko 2021.
 // Distributed under the Boost Software License, Version 1.0.
