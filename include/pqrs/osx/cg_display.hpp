@@ -44,16 +44,15 @@ inline std::vector<CGDirectDisplayID> active_displays(void) {
 }
 
 inline std::optional<CGDirectDisplayID> get_online_display_id_by_mouse_cursor() {
-  std::optional<CGDirectDisplayID> result;
-
-  auto point = cg_event::mouse::cursor_position();
-
   CGDirectDisplayID display_id;
-  if (CGGetDisplaysWithPoint(point, 1, &display_id, nullptr) == kCGErrorSuccess) {
-    result = display_id;
+  if (CGGetDisplaysWithPoint(cg_event::mouse::cursor_position(),
+                             1,
+                             &display_id,
+                             nullptr) == kCGErrorSuccess) {
+    return display_id;
   }
 
-  return result;
+  return std::nullopt;
 }
 
 } // namespace cg_display
